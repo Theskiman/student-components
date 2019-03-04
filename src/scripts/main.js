@@ -76,10 +76,10 @@ const students = [
 const createStudentComponent = (name, subject, info, classScore) => {
     console.log("function args", name, subject, info, classScore)
     return `
-        <div class="student ${classScore}">
-            <h1>${name}</h1>
-            <section>${subject}</section>
-            <aside>${info}</aside>
+        <div class="student">
+        <h1 class="xx-large ${classScore}">${name}</h1>
+        <section class="bordered dashed section--padded">${subject}</section>
+        <aside class="pushRight">${info}</aside>
         </div>
     `
   }
