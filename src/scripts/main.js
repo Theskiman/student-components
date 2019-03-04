@@ -1,5 +1,4 @@
-const students = [
-    {
+const students = [{
         name: "Chris Miller",
         subject: "History",
         info: "Failed last exam",
@@ -72,36 +71,29 @@ const students = [
         score: 95
     }
 ]
-
-const createStudentComponent = (name, subject, info, classScore) => {
-    console.log("function args", name, subject, info, classScore)
+const studentContainer = document.querySelector("#container");
+const createStudentComponent = (student) => {
+    if (student.score >= 60) {
+            score = "passing"
+        
+         }
+          else {
+           score = "failing"
+        
+    }
     return `
         <div class="student">
-        <h1 class="xx-large ${classScore}">${name}</h1>
-        <section class="bordered dashed section--padded">${subject}</section>
-        <aside class="pushRight">${info}</aside>
+        <h1 class="xx-large ${score}">${student.name}</h1>
+        <section class="bordered dashed section--padded">${student.subject}</section>
+        <aside class="pushRight">${student.info}</aside>
         </div>
     `
-  }
+}
 
-  const studentContainer = document.querySelector("#container");
+
 
 
 for (i = 0; i < students.length; i++) {
-    
-    if (students[i].score >= 60) {
-        studentComponent =  studentContainer.innerHTML += createStudentComponent(
-            students[i].name,
-            students[i].subject,
-            students[i].info,
-            "passing"
-        )
-    } else {
-        studentComponent = studentContainer.innerHTML += createStudentComponent(
-            students[i].name,
-            students[i].subject,
-            students[i].info,
-            "failing"
-        )
-}
-}   
+    studentContainer.innerHTML += createStudentComponent(students[i])
+
+};
