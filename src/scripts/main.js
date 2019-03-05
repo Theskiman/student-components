@@ -92,26 +92,42 @@ const studentContainer = document.querySelector("#container");
 
 
 
-const h1 = (name) => `<h1>${name}</h1>`
+// const h1 = (name) => `<h1>${name}</h1>`
 
-const section = (subject) => `<section>${subject}</section>`
+// const section = (subject) => `<section>${subject}</section>`
 
 
 
-const aside = (info) => `<aside>${info}</aside>`
+// const aside = (info) => `<aside>${info}</aside>`
 
+
+
+
+// const createStudentComponent = () => `
+//     <div id="student">
+//         ${h1(student.name)}
+//         ${section(student.subject)}
+//         ${aside(student.info)}
+//     </div>`
+
+
+// for (i = 0; i < students.length; i++) {
+//     studentContainer.innerHTML += createStudentComponent(students[i])
+
+// };
+function element(type, content, classVal ){
+   return `<${type} class = "${classVal}"> ${content} </${type}>`
+}
 
 
 
 const createStudentComponent = (student) => `
     <div id="student">
-        ${h1(student.name)}
-        ${section(student.subject)}
-        ${aside(student.info)}
+        ${element("h1", student.name, "xx-large passing")}
+        ${element("section", student.subject, "bordered dashed section--padded")}
+        ${element("aside", student.info, "pushRight")}
     </div>`
 
-
-for (i = 0; i < students.length; i++) {
-    studentContainer.innerHTML += createStudentComponent(students[i])
-
-};
+    for (i = 0; i < students.length; i++) {
+        studentContainer.innerHTML += createStudentComponent(students[i])
+    }
